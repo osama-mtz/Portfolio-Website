@@ -1,0 +1,338 @@
+/* =========================================
+   1. RESET & BASE STYLES
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Color palette - change these to re-theme the whole site */
+  --color-ink: #16161A;       /* dark background / text */
+  --color-paper: #EEF0F2;     /* light background */
+  --color-accent: #3355FF;    /* primary blue accent */
+  --color-accent2: #FF5A36;   /* coral accent */
+  --color-muted: #6B6B76;     /* grey text */
+
+  /* Fonts */
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  padding: 100px 8%;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  margin-bottom: 48px;
+}
+
+/* =========================================
+   2. NAVIGATION BAR
+   ========================================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 8%;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-paper);
+  z-index: 100;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+.logo span {
+  color: var(--color-accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+
+/* Hamburger button - hidden on desktop, shown on mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 26px;
+  height: 2px;
+  background-color: var(--color-ink);
+}
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 0.95;
+  transform: rotate(-2deg);
+  transform-origin: left;
+  margin: 16px 0 24px;
+}
+
+.hero .eyebrow {
+  color: var(--color-accent2);
+}
+
+.hero-tagline {
+  max-width: 480px;
+  color: #B8B8C2;
+  margin-bottom: 32px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 16px 32px;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent2);
+}
+
+/* =========================================
+   4. ABOUT SECTION
+   ========================================= */
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-image img {
+  border-radius: 4px;
+}
+
+.about-text h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  color: var(--color-muted);
+  margin-bottom: 24px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+}
+
+.skills-list li {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border: 1px solid var(--color-ink);
+  padding: 8px 14px;
+}
+
+/* =========================================
+   5. PROJECTS SECTION
+   ========================================= */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.project-card {
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-info {
+  padding: 24px;
+}
+
+.project-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.project-info p {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.project-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-accent);
+}
+
+/* =========================================
+   6. CONTACT SECTION
+   ========================================= */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-family: var(--font-body);
+  padding: 14px;
+  border: 1px solid var(--color-muted);
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.form-status {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-accent);
+}
+
+.social-links {
+  display: flex;
+  gap: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.social-links a:hover {
+  color: var(--color-accent);
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+
+.footer {
+  text-align: center;
+  padding: 32px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+/* =========================================
+   8. RESPONSIVE / MOBILE STYLES
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-paper);
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+    gap: 20px;
+    display: none; /* hidden by default, toggled by JS */
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 64px 6%;
+  }
+}
